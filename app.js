@@ -21,11 +21,11 @@ app.use((req, res, next) => {
 });
 
 //Outcomes
-app.get('/test', function(req,res)
+app.get('/test', function(req,res) //A test request (GET)
 {
     console.log('TESTING');
 });
-app.post('/sendMail', function(req,res)
+app.post('/sendMail', function(req,res) //Mail request, gets data, then returns success or error (POST)
 {
     let params = req.body;
 
@@ -49,7 +49,7 @@ app.post('/sendMail', function(req,res)
       )
     });
 });
-app.get('/info', function(req,res)
+app.get('/info', function(req,res) //Info request, for more testing, returns sucess (GET)
 {
   return res.status(200).send(
     {
@@ -62,10 +62,8 @@ app.get('/info', function(req,res)
 
 
 //SEND EMAIL
-// async..await is not allowed in global scope, must use a wrapper
 async function sendMail(params) {
     // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
     let testAccount = await nodemailer.createTestAccount();
   
     // create reusable transporter object using the default SMTP transport
@@ -98,6 +96,6 @@ async function sendMail(params) {
   }
   
 
-
+//Run app
 app.listen(port, () => {  console.log('We are live on ' + port);});
 module.exports = app;
