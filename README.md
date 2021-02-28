@@ -1,5 +1,10 @@
 # bling-test-nodeServer
 
+## Install node dependences
+```
+npm install
+```
+
 ## Run server
 ```
 npm run dev
